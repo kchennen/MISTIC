@@ -1,0 +1,49 @@
+<header>
+    <!-- Fixed navbar -->
+    <nav class="navbar fixed-top navbar-expand-md navbar-dark bg-dark slim-navbar">
+        <a class="navbar-brand" href="{{ url_for('base_blueprint.home') }}">
+            <img src="{{ url_for('base_blueprint.static', filename='img/logo_16.png') }}" style="margin-top: -5px"
+                 alt="logo">
+            {{ config.FLASK_APP_NAME }}
+        </a>
+        <button class="navbar-toggler slim-navbar-toggler" type="button" data-toggle="collapse"
+                data-target="#navbarCollapse"
+                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('base_blueprint.home') }}">
+                        <i class="fas fa-home"></i> Home
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('base_blueprint.home') }}#cite">
+                        <i class="fas fa-newspaper"></i>
+                        Cite
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('base_blueprint.download') }}">
+                        <i class="fas fa-download"></i> Download
+                    </a>
+                </li>
+{#                <li class="nav-item">#}
+{#                    <a class="nav-link" href="{{ url_for('api_blueprint.doc') }}" target="_blank">#}
+{#                        <i class="fas fa-cog"></i> API#}
+{#                    </a>#}
+{#                </li>#}
+                <li class="nav-item">
+                    <a class="nav-link" href="https://lbgi.fr/api/index.rvt?api=mistic" target="_blank">
+                        <i class="fas fa-cog"></i> API
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('base_blueprint.contact') }}">
+                        <i class="fas fa-comment-alt"></i> Contact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>

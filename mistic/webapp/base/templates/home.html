@@ -1,0 +1,121 @@
+{% extends 'base.html' %}
+
+{% block page_content %}
+    <main role="main" class="container  mt-3">
+        <div class="jumbotron_banner">
+            <h1>{{ config.FLASK_APP_NAME }}</h1>
+            <p class="lead">MISsense deleTeriousness predICtor</p>
+        </div>
+
+        <br>
+        <h1>Abstract</h1>
+        <p class="text-justify lead">
+            The diffusion of next-generation sequencing technologies has revolutionized research and diagnosis in the
+            field of rare Mendelian disorders, notably via whole-exome sequencing (WES). However, one of the main issues
+            hampering achievement of a diagnosis via WES analyses is the extended list of variants of unknown
+            significance (VUS), mostly composed of missense variants. Hence, improved solutions are needed to address
+            the challenges of identifying potentially deleterious variants and ranking them in a prioritized short list.
+            We present MISTIC (MISsense deleTeriousness predICtor), a new prediction tool based on an original
+            combination of two complementary machine learning algorithms using a soft voting system that integrates
+            113 missense features, ranging from multi-ethnic minor allele frequencies and evolutionary conservation,
+            to physiochemical and biochemical properties of amino acids. Our approach also uses training sets with a
+            wide spectrum of variant profiles, including both high-confidence positive (deleterious) and negative
+            (benign) variants. Compared to recent state-of-the-art prediction tools in various benchmark tests and
+            independent evaluation scenarios, MISTIC exhibits the best and most consistent performance, notably with the
+            highest AUC value (> 0.95). Importantly, MISTIC maintains its high performance in the specific case of
+            discriminating deleterious variants from benign variants that are rare or population-specific. In a clinical
+            context, MISTIC drastically reduces the list of VUS (<30%) and significantly improves the ranking of
+            “causative” deleterious variants. Pre-computed MISTIC scores for all possible human missense variants are
+            available at <a href="http://lbgi.fr/mistic">http://lbgi.fr/mistic</a>.
+        </p>
+        <br>
+        <br>
+
+        <h1>Benchmark results</h1>
+
+        <p>
+            <figure class="figure">
+                <figcaption class="figure-caption text-center"><b style="">Fig 1. Performance of missense prediction
+                    tools on VarTest set.</b>
+                </figcaption>
+                <img src="{{ url_for('base_blueprint.static', filename='img/home/Fig1.png') }}"
+                     class="figure-img
+                img-fluid rounded mx-auto d-block" alt="Figure 1" width="60%">
+                <figcaption class="figure-caption text-justify">
+                    MISTIC was compared to individual component features (MetaSVM, MetaLR, VEST4, Condel, CADD,
+                    PolyPhen2, SIFT) used in its model (in grey) and the best-performing tools recently published
+                    (in color). The Area Under the receiver operating characteristics Curve (AUC) is shown in brackets.
+                </figcaption>
+            </figure>
+        </p>
+        <hr>
+
+        <p>
+            <figure class="figure">
+                <figcaption class="figure-caption text-center"><b style="">
+                    Fig 2. Evaluation of prediction tools on different variant analysis scenarios.
+                </b></figcaption>
+                <img src="{{ url_for('base_blueprint.static', filename='img/home/Fig2.png') }}" class="figure-img
+                img-fluid rounded mx-auto d-block" alt="Figure 2" width="60%">
+                <figcaption class="figure-caption text-justify">
+                    The performance of MISTIC was compared to other missense prediction tools for the discrimination of
+                    deleterious variants from rare benign variants and population-specific missense variants.
+                    All prediction tools were evaluated using novel deleterious variants (Fig 2A - ClinVarNew and
+                    Benign_EvalSet set), known deleterious variants from diverse sources (Fig 2B - DoCM and
+                    Benign_EvalSet set), rare benign variants with MAF data (<0.01, <0.005, <0.001, <0.0001, singleton)
+                    or benign variants without MAF (ClinVarNew/DoCM and PopSpe_EvalSet : UK10K, SweGen, WesternAsia;
+                    Fig 2C).
+                </figcaption>
+            </figure>
+        </p>
+        <hr>
+
+        <p>
+            <figure class="figure">
+                <figcaption class="figure-caption text-center"><b style="">
+                    Fig 3. Evaluation of the different missense prediction tools using simulated and real disease exomes.
+                </b></figcaption>
+                <img src="{{ url_for('base_blueprint.static', filename='img/home/Fig3.png') }}" class="figure-img
+                img-fluid rounded mx-auto d-block" alt="Figure 3" width="70%">
+                <figcaption class="figure-caption text-justify">
+                    A – Distribution of the percentage of predicted deleterious variants in the simulated disease
+                    exomes. <br>
+                    B – Ranking of the “causative” deleterious variants introduced in simulated disease exomes. <br>
+                    C – Distribution of the percentage of predicted deleterious variants on the exomes of the
+                    MyoCapture project. <br>
+                    D – Ranking of the causative deleterious variants identified in real congenital myopathy exomes
+                    from the MyoCapture project. <br>
+                </figcaption>
+            </figure>
+        </p>
+        <hr>
+
+        <p>
+            <figure class="figure">
+                <figcaption class="figure-caption text-center" ><b style="">
+                    Fig 4. Distribution of scores for deleterious and benign variants.
+                </b></figcaption>
+                <img src="{{ url_for('base_blueprint.static', filename='img/home/Fig4.png') }}"
+                     class="figure-img img-fluid rounded mx-auto d-block" alt="Figure 4" width="60%">
+                <figcaption class="figure-caption text-justify">
+                    The variants of the deleterious and benign evaluation sets were pooled and the distribution of the
+                    scores for deleterious and benign variants were represented using violin plots. Red area –
+                    distribution of scores for deleterious variants. Green area – distribution of scores for benign
+                    variants. Black line – recommended threshold.
+                </figcaption>
+            </figure>
+        </p>
+
+        <h1 id="cite">How to cite</h1>
+        <hr>
+        <blockquote class="blockquote">
+            <p class="mb-0">Chennen K, Weber T, Lornage X, Kress A, Böhm J, Thompson J, Laporte J, Poch O. MISTIC: A
+                prediction tool to reveal disease-relevant deleterious missense variants. 2020 Jul 31;15(7):e0236962.
+doi: <a href="https://doi.org/10.1371/journal.pone.0236962">https://doi.org/10.1371/journal.pone.0236962</a>. eCollection 2020.
+            </p>
+        </blockquote>
+        <br>
+
+    </main>
+
+{% endblock page_content %}

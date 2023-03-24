@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+
+{% block page_content %}
+    <main role="main" class="container  mt-3">
+        <h1>Download pre-computed {{ config.FLASK_APP_NAME }} scores</h1>
+        <hr>
+
+        <div class="text-justify bd-highlight">
+            To download {{ config.FLASK_APP_NAME }} scores for all possible missense (~74,000,000 missense ~ 700 MB), click here for:
+            <ul>
+                <li>
+                    <a href="{{ url_for('base_blueprint.static',
+                                filename='data/' + config.FLASK_APP_RES['download']['precompute37']
+                                )
+                        }}">GRCh37 version</a>
+                </li>
+                <li>
+                    <a href="{{ url_for('base_blueprint.static',
+                                filename='data/' + config.FLASK_APP_RES['download']['precompute38']
+                                )
+                        }}">GRCh38 version</a>
+                </li>
+            </ul>
+        </div>
+
+        <p>All files are in tab-separated value (TSV) format and contain 6 fields:</p>
+        <ol>
+            <li><b>CHROM</b> : chromosome</li>
+            <li><b>POS</b> : position</li>
+            <li><b>REF</b> : reference nucleotide</li>
+            <li><b>ALT</b> : alternate nucleotide</li>
+            <li><b>{{ config.FLASK_APP_NAME }}_score</b> : {{ config.FLASK_APP_NAME }} score</li>
+            <li><b>{{ config.FLASK_APP_NAME }}_hspred</b> : {{ config.FLASK_APP_NAME }} "high sensitivity" prediction for exome analysis</li>
+            <li><b>{{ config.FLASK_APP_NAME }}_pred</b> : {{ config.FLASK_APP_NAME }} prediction for global performance</li>
+        </ol>
+        <br>
+
+        <h1>Download {{ config.FLASK_APP_NAME }} training set (GRCh37/hg19)</h1>
+        <hr>
+        <ul>
+            <li>
+                Positive training set (Without HGMD variants):
+                <a href="{{ url_for('base_blueprint.static',
+                                    filename='data/' + config.FLASK_APP_RES['download']['positive_set_without']
+                                    )
+                        }}">
+                    {{ config.FLASK_APP_NAME }}_positive_training_set.vcf.gz
+                </a>
+            </li>
+
+            <li>
+                Positive training set with only HGMD variants IDs:
+                <a href="{{ url_for('base_blueprint.static',
+                                    filename='data/' + config.FLASK_APP_RES['download']['positive_set_hgmd']
+                                    )
+                        }}">
+                    {{ config.FLASK_APP_NAME }}_positive_training_set.vcf.gz
+                </a>
+            </li>
+
+            <li>
+                Negative training set:
+                <a href="{{ url_for('base_blueprint.static',
+                                    filename='data/' + config.FLASK_APP_RES['download']['negative_set']
+                                    )
+                        }}">
+                    {{ config.FLASK_APP_NAME }}_negative_training_set.vcf.gz
+                </a>
+            </li>
+
+            <li>
+                Evaluation sets:
+                <a href="{{ url_for('base_blueprint.static',
+                                    filename='data/' + config.FLASK_APP_RES['download']['evaluation_set']
+                                    )
+                        }}">
+                    {{ config.FLASK_APP_NAME }}_evaluation_set.vcf.gz
+                </a>
+            </li>
+        </ul>
+        <br>
+
+        <h1>Download {{ config.FLASK_APP_NAME }} source code</h1>
+        <hr>
+        <p>{{ config.FLASK_APP_NAME }} public git repository can be found <a
+                href="{{ config.FLASK_APP_RES['source_code'] }}">here</a>.</p>
+
+    </main>
+{% endblock page_content %}

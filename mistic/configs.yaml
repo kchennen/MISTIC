@@ -1,0 +1,29 @@
+project: 'MISTIC'
+project_name: 'MISsense deleTeriousness predICtor'
+project_path:
+data_path:
+    root: '/gstock/user/kchennen/MISTIC/data'
+    raw: '0_raw'
+    interim: '1_interim'
+    processed: '2_processed'
+
+FLASK_APP_NAME: 'MISTIC'
+FLASK_APP_ROOT_URL: '/mistic/'
+FLASK_APP_AUTHOR: 'kchennen@unistra.fr'
+FLASK_APP_HOST: '0.0.0.0'
+FLASK_APP_PORT: 8508
+FLASK_APP_DEBUG: 1
+
+FLASK_APP_RES:
+    root_path: '/gstock/user/kchennen/MISTIC/data/2_processed/'
+    db:
+        37: 'MISTIC_GRCh37.db'
+        38: 'MISTIC_GRCh38.db'
+    download:
+        precompute37: 'MISTIC_GRCh37.tsv.gz'
+        precompute38: 'MISTIC_GRCh38.tsv.gz'
+        positive_set_without: 'ClinVar.csv.gz'
+        positive_set_hgmd: 'HGMD.csv.gz'
+        negative_set: 'gnomAD.csv.gz'
+        evaluation_set: 'MISTIC_eval_sets.csv.gz'
+    source_code: 'https://github.com/weber8thomas/MISTIC-public'

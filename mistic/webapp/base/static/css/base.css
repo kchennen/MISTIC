@@ -1,0 +1,59 @@
+/* Sticky footer styles
+----------------------------------------------------------------------------- */
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    /* Margin bottom by footer height */
+    margin-bottom: 40px;
+    border-bottom-width: 102px;
+}
+
+.footer {
+    position: absolute;
+    bottom: 1px;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 40px;
+    line-height: 40px; /* Vertically center the text there */
+    background-color: #F5F5F5;
+    border-top: 1px solid #e5e5e5;
+
+}
+
+/* Custom Slim Navbar
+----------------------------------------------------------------------------- */
+.slim-navbar {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.slim-navbar-toggler {
+    padding: 0 0 0 0;
+}
+
+.navbar-expand-md .navbar-nav .nav-link {
+    padding-right: 8px;
+    padding-left: 8px;
+}
+
+/* Custom page CSS
+-------------------------------------------------- */
+ /*Not required for template or sticky footer method.*/
+body > .container {
+padding: 60px 10px 0;
+}
+
+.footer > .container {
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.bg-light {
+background-color: #f8f9fa !important;
+}
+.border-bottom {
+border-bottom: 1px solid #e5e5e5;
+}
