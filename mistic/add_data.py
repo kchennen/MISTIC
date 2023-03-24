@@ -23,8 +23,8 @@ def fetch_data():
     res_files = configs['FLASK_APP_RES']['download']
     
     for r in res_files:
-        # print(os.path.join(root_path, res_files[r]),
-        #            os.path.join(static_data, res_files[r]))
+        print(os.path.join(root_path, res_files[r]),
+                   os.path.join(static_data, res_files[r]))
         os.symlink(os.path.join(root_path, res_files[r]),
                    os.path.join(static_data, res_files[r]))
 
