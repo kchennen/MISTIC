@@ -12,11 +12,10 @@ def run(host=configs['FLASK_APP_HOST'], port=configs['FLASK_APP_PORT']):
             )
 
 
-def wsgi(webapp='mistic.webapp.wsgi:run', host='0.0.0.0', port=configs['FLASK_APP_PORT'], workers=2):
+def wsgi(webapp='mistic.webapp.wsgi:run', host='0.0.0.0', port=configs['FLASK_APP_PORT'], workers=1):
     bash_cmd = 'uvicorn --host {h} '.format(h=host) + \
                '--port {p} '.format(p=port) + \
                '--workers {w} '.format(w=workers) + \
-               '--reload ' + \
                '{a}'.format(a=webapp)
 
     subprocess.run(args=bash_cmd.split(), stdout=subprocess.PIPE)
